@@ -36,7 +36,7 @@ a completed machine learning.
 
 ## Project Directory Structure
 ```
-├── Assignment_1/                          # First assignment
+├── Assignment_1/                  # First assignment
 │   ├── data/                      # Dataset
 │   │   ├── raw/                   # Original raw data
 │   │   └── processed/             # Cleaned/preprocessed data
