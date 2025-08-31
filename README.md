@@ -23,17 +23,16 @@ Information on building data processors, specific quotes, trainers
 figures and evaluating results, students will master the basic steps in declaring a job
 a completed machine learning.  
 
-## How to Run the Notebook
-1. **Install required libraries**:  
+## How to Run Each Project
+1. Go to the corresponding folder (`Assignment_1/`, `Assignment_2/`, `Assignment_3/`).  
+2. Install dependencies:  
    ```bash
    pip install -r requirements.txt
    ```
-2. **Download the dataset**:  
-   - Dataset is stored in: `./data/`  
-   - Or download from external source: [Dataset link]  
+3. Download or place datasets inside `data/raw/`.  
+4. Run notebooks in order: exploration → preprocessing → modeling.  
+5. Check results in the `results/` folder.  
 
-3. **Run the notebook**:  
-   Open the `.ipynb` file in Jupyter Notebook or Google Colab and run all cells sequentially.
 
 ## Project Directory Structure
 ```
