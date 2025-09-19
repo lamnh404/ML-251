@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSEML04 - Assignment Information</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.7;
+            color: #222;
+            background: linear-gradient(120deg, #f8f9fa 60%, #e3eafc 100%);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 950px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 36px 36px 28px 36px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+        h1 {
+            font-size: 2.7em;
+            color: #2a4d8f;
+            border-bottom: 2px solid #e3eafc;
+            padding-bottom: 12px;
+            margin-bottom: 28px;
+            letter-spacing: 1px;
+        }
+        h2 {
+            font-size: 1.7em;
+            color: #2a4d8f;
+            margin-top: 38px;
+            border-bottom: 1px solid #e3eafc;
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-size: 1.25em;
+            color: #3a5ca8;
+            margin-top: 28px;
+            margin-bottom: 10px;
+        }
+        p, li {
+            font-size: 1.07em;
+        }
+        a {
+            color: #2a4d8f;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #1a2c4f;
+            text-decoration: underline;
+        }
+        code {
+            font-family: 'Fira Mono', 'Courier New', Courier, monospace;
+            background-color: #e3eafc;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 0.98em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 18px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 13px 16px;
+            text-align: left;
+            border: 1px solid #e3eafc;
+        }
+        th {
+            background-color: #e3eafc;
+            color: #2a4d8f;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f4f7fb;
+        }
+        tr:hover td {
+            background: #eaf3ff;
+        }
+        .header-info {
+            font-size: 1.13em;
+            color: #4d648d;
+            margin-bottom: 32px;
+        }
+        .colab-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #4285F4 60%, #6ab7ff 100%);
+            color: #fff;
+            padding: 8px 18px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(66,133,244,0.12);
+            border: none;
+            font-size: 1em;
+            transition: background 0.2s;
+        }
+        .colab-button:hover {
+            background: linear-gradient(90deg, #357ae8 60%, #4285F4 100%);
+            color: #fff;
+            text-decoration: none;
+        }
+        pre {
+            background: #f4f7fb;
+            border-radius: 8px;
+            padding: 18px;
+            font-size: 1.07em;
+            margin-top: 10px;
+            margin-bottom: 18px;
+            color: #2a4d8f;
+            overflow-x: auto;
+        }
+        ul, ol {
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 36px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+    <h1>CSEML04</h1>
+        <p class="header-info">
+            Ho Chi Minh City University of Technology (HCMUT) - Vietnam National University-Ho Chi Minh City (VNU-HCMC).<br>
+            Machine Learning (CO3117) assignments, group TN01, team CSEML04.
+        </p>
+
+        <h2>1. General information</h2>
+        <ul>
+            <li><strong>Course name:</strong> Machine Learning (CO3117).</li>
+            <li><strong>Semester 251, academic year:</strong> 2025-2026.</li>
+            <li><strong>Instructor:</strong> Lê Thành Sách, email: ltsach@hcmut.edu.vn.</li>
+            <li><strong>Team members:</strong></li>
+        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Student ID</th>
+                    <th>Email address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cao Nhất Lâm</td>
+                    <td>2311815</td>
+                    <td>lam.caonhat0404@hcmut.edu.vn</td>
+                </tr>
+                <tr>
+                    <td>Nguyễn Thanh Toàn</td>
+                    <td>2313492</td>
+                    <td>toan.nguyenthanh23@hcmut.edu.vn</td>
+                </tr>
+                <tr>
+                    <td>Đoàn Võ Việt Khôi</td>
+                    <td>2311660</td>
+                    <td>khoi.doanbkpy@hcmut.edu.vn</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+        <h2>2. Assignment Information</h2>
+        <h3>Introduction</h3>
+        <p>
+            This assignment helps students apply machine learning theory to solve practical problems on tabular, text, and image data. Students will build data pipelines, train models, and evaluate results to reinforce both theory and hands-on skills.
+        </p>
+        <h3>Goals</h3>
+        <ul>
+            <li>Apply the traditional machine learning pipeline: preprocessing, feature extraction, model training, and evaluation.</li>
+            <li>Practice with different data types: tabular, text, and image.</li>
+            <li>Analyze and compare model performance using appropriate metrics.</li>
+            <li>Develop programming and scientific reporting skills.</li>
+        </ul>
+
+        <h3>Repository</h3>
+        <p>
+            <b>GitHub:</b> <a href="https://github.com/lamnh404/ML-251" target="_blank">https://github.com/lamnh404/ML-251</a>
+        </p>
+        <h3>How to Run Each Project</h3>
+        <ul>
+            <li>Go to the corresponding folder (<code>Assignment_1/</code>, <code>Assignment_2/</code>, <code>Assignment_3/</code>) and read the specific <code>README.md</code> for instructions.</li>
+        </ul>
+
+        <h3>Project Directory Structure</h3>
+        <pre style="background:#f4f7fb; border-radius:8px; padding:18px; font-size:1.07em; color:#2a4d8f;">
+├── Assignment_1/
+│   ├── models/
+│   ├── features/
+│   ├── notebook/
+│   └── README.md
+│
+├── Assignment_2/
+│   ├── models/
+│   ├── features/
+│   ├── notebook/
+│   └── README.md
+│
+├── Assignment_3/
+│   ├── models/
+│   ├── features/
+│   ├── notebook/
+│   └── README.md
+│
+└── README.md    # Main project overview
+        </pre>
+
+        <h3>How to Run Assignment 1</h3>
+        <ul>
+            <li><b>Google Colab:</b>
+                <ul>
+                    <li>Click the Colab link in the assignment table below.</li>
+                    <li>Run all cells for a cloud-based, interactive experience.</li>
+                </ul>
+            </li>
+            <li><b>Local:</b>
+                <ul>
+                    <li>Go to <code>Assignment_1/</code> and open a terminal.</li>
+                    <li>Install dependencies:<br>
+                        <code>pip install -r requirements.txt</code>
+                    </li>
+                    <li>(Optional) Enable Jupyter widgets:<br>
+                        <code>jupyter nbextension enable --py widgetsnbextension</code>
+                    </li>
+                    <li>Launch Jupyter Notebook:<br>
+                        <code>jupyter notebook</code>
+                    </li>
+                    <li>Open and run <code>notebook/251_ML_Assignment1.ipynb</code>.</li>
+                </ul>
+            </li>
+        </ul>
+        <ul>
+            <li><strong>Requirements</strong> (taken from Google Colab default environment 2025-08-27): Python 3.12.11</li>
+        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Package</th>
+                    <th>Version</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>numpy</td>
+                    <td>2.0.2</td>
+                </tr>
+                <tr>
+                    <td>pandas</td>
+                    <td>2.2.2</td>
+                </tr>
+                <tr>
+                    <td>scikit-learn</td>
+                    <td>1.6.1</td>
+                </tr>
+                 <tr>
+                    <td>matplotlib</td>
+                    <td>3.10.0</td>
+                </tr>
+                 <tr>
+                    <td>seaborn</td>
+                    <td>0.13.2</td>
+                </tr>
+                 <tr>
+                    <td>torch</td>
+                    <td>2.8.0+cu126</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ul>
+            <li><strong>Dataset:</strong>
+                <ul>
+                    <li>Assignment 1: Melbourne Housing Snapshot: <a href="https://www.kaggle.com/datasets/dansbecker/melbourne-housing-snapshot/data" target="_blank">Kaggle Link</a></li>
+                </ul>
+            </li>
+        </ul>
+
+    <h3>Project's folder structure</h3>
+    <pre style="background:#f8f9fa; border-radius:6px; padding:16px; font-size:1em;">
+Assignment_1/
+├── features/      # train.npy, test.npy (feature data)
+├── models/        # preprocess.py, IOmanip.py (scripts)
+├── notebook/      # 251_ML_Assignment1.ipynb (Jupyter notebook)
+├── requirements.txt
+└── README.md
+    </pre>
+
+
+        <h2>3. Assignment Details</h2>
+
+        <h3>Assignment 1: Tabular Data Assignment: Melbourne Housing Price Analysis & Prediction</h3>
+        <ul>
+            <li><b>Dataset:</b> <a href="https://www.kaggle.com/datasets/dansbecker/melbourne-housing-snapshot/data" target="_blank">Melbourne Housing Snapshot</a></li>
+            <li><b>Notebook:</b> <code>/notebook/251_ML_Assignment1.ipynb</code> &nbsp; <a href="https://colab.research.google.com/drive/1GAUbgeEsvjU-iEGN_TrHmg8Ruim0jAfb?usp=sharing" class="colab-button" target="_blank">Open in Colab</a></li>
+                <li><b>Description:</b> This assignment focuses on analyzing and predicting house prices in Melbourne using machine learning. The project covers data exploration, preprocessing, feature engineering, model training (Linear Regression, SVR, Random Forest, MLP), and interactive experimentation. Key steps include EDA, handling missing/categorical values, feature scaling, PCA, model selection, and performance comparison. Results highlight the impact of location, property features, and model choice on prediction accuracy.</li>
+                <li><b>How to Run:</b>
+                    <ul>
+                        <li><b>Google Colab:</b> Click the Colab link above and run all cells for a cloud-based, interactive experience.</li>
+                        <li><b>Local:</b>
+                            <ul>
+                                <li>Go to <code>Assignment_1/</code> and open a terminal.</li>
+                                <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
+                                <li>(Optional) Enable Jupyter widgets: <code>jupyter nbextension enable --py widgetsnbextension</code></li>
+                                <li>Launch Jupyter Notebook: <code>jupyter notebook</code></li>
+                                <li>Open and run <code>notebook/251_ML_Assignment1.ipynb</code>.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li><b>Key Insights:</b>
+                <ul>
+                    <li>MLP (Deep Learning) model achieved the highest accuracy (R²), outperforming traditional models.</li>
+                    <li>SVR and Random Forest performed best among traditional models.</li>
+                    <li>Distance from CBD is a strong negative predictor of price.</li>
+                    <li>Dataset quality is high, enabling effective training and evaluation.</li>
+                </ul>
+            </li>
+            </ul>
+        </ul>
+
+
+        <h3>Assignment 2: Text Data Assignment</h3>
+        <ul>
+            <li><b>Dataset:</b> Updating...</li>
+            <li><b>Notebook:</b> Updating...</li>
+            <li><b>Description:</b> Updating...</li>
+        </ul>
+
+        <h3>Assignment 3: Image Data Assignment</h3>
+        <ul>
+            <li><b>Dataset:</b> Updating...</li>
+            <li><b>Notebook:</b> Updating...</li>
+            <li><b>Description:</b> Updating...</li>
+        </ul>
+
+        <h3>Extension Assignment</h3>
+        <ul>
+            <li><b>Description:</b> Updating...</li>
+        </ul>
+
+    </div>
+
+</body>
+</html>
