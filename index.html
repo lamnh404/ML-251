@@ -314,9 +314,29 @@
 
         <h3>Assignment 2: Text Data Assignment</h3>
         <ul>
-            <li><b>Dataset:</b> Updating...</li>
-            <li><b>Notebook:</b> Updating...</li>
-            <li><b>Description:</b> Updating...</li>
+            <li><b>Dataset:</b> <a href="https://www.kaggle.com/datasets/amananandrai/ag-news-classification-dataset" target="_blank">AG News Classification Dataset</a></li>
+            <li><b>Notebook:</b> <code>/notebook/251_ML_Assignment2.ipynb</code> &nbsp; <a href="https://colab.research.google.com/drive/11dA7fUtUfbSD7a7KDgNgB7Gk50PzcSqk?usp=sharing" class="colab-button" target="_blank">Open in Colab</a></li>
+            <li>
+                <b>Description:</b>
+                <ul>
+                    <li>This project focuses on text classification, categorizing news articles into four classes: World, Sports, Business, and Sci/Tech.</li>
+                    <li>The core task is to compare the performance of traditional machine learning methods with a modern deep learning approach:
+                        <ul>
+                            <li><b>Data Preprocessing & EDA:</b> Analyzed class distribution, text length, and word frequencies to understand the dataset.</li>
+                            <li><b>Traditional Models:</b> Used TfidfVectorizer for feature extraction and GridSearchCV to train and evaluate Naive Bayes, Logistic Regression, SVC, and Random Forest.</li>
+                            <li><b>Deep Learning Model:</b> Fine-tuned a pre-trained BERT model to understand the contextual meaning of the news text for classification.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><b>Key Insights:</b>
+                <ul>
+                    <li>The fine-tuned BERT (Deep Learning) model achieved the highest test accuracy (91.3%), significantly outperforming traditional methods.</li>
+                    <li>SVC (Support Vector Classifier) was the best-performing traditional model, providing a strong baseline with 87.1% accuracy.</li>
+                    <li>This comparison highlights the superior ability of transformer-based models like BERT to understand language context for classification tasks.</li>
+                    <li>While computationally more expensive, the deep learning approach offers a clear advantage in performance for this text-based problem.</li>
+                </ul>
+            </li>
         </ul>
 
         <h3>Assignment 3: Image Data Assignment</h3>

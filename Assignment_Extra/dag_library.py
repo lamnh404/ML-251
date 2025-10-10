@@ -14,7 +14,7 @@ class DAG:
 
     def add_edge(self, u, v):
         if u not in self.nodes or v not in self.nodes:
-            raise ValueError("Các nút phải tồn tại trong đồ thị trước khi thêm cạnh.")
+            raise ValueError("No node found")
         self.adj[u].append(v)
         self.in_degree[v] += 1
     
@@ -35,5 +35,5 @@ class DAG:
                     q.append(v)
         
         if len(topo_order) != len(self.nodes):
-            raise ValueError("Đồ thị có chu trình. Không thể sắp xếp topo.")
+            raise ValueError("Cycle in graph")
         return topo_order
