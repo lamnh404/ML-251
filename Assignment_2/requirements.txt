@@ -1,0 +1,10 @@
+pandas
+numpy
+torch
+nltk
+matplotlib
+tqdm
+seaborn
+kagglehub
+scikit-learn
+transformers

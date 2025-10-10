@@ -39,12 +39,14 @@ Go to the corresponding folder (`Assignment_1/`, `Assignment_2/`, `Assignment_3/
 │   ├── models/
 │   ├── features/
 │   ├── notebook/
+│   ├── report/
 │   └── README.md
 │
 ├── Assignment_3/
 │   ├── models/
 │   ├── features/
 │   ├── notebook/
+│   ├── report/
 │   └── README.md
 │
 └── README.md    # Main project overview
