@@ -1,5 +1,5 @@
 # ML-251 Assignment 2: AG News Classification
-This repository contains the code and resources for Assignment 2 of the CSEML04 course, focused on text classification. The project aims to categorize news articles from the AG News dataset into one of four classes (World, Sports, Business, Sci/Tech) and compares the performance of traditional machine learning models against a modern deep learning approach.
+This repository contains the code and resources for Assignment 2, focused on text classification. The project aims to categorize news articles from the AG News dataset into one of four classes (World, Sports, Business, Sci/Tech) and compares the performance of traditional machine learning models against a modern deep learning approach.
 
 ## Quick Start
 **Google Colab**: Run the notebook online: [Open in Colab](https://colab.research.google.com/drive/11dA7fUtUfbSD7a7KDgNgB7Gk50PzcSqk)
