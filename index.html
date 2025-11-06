@@ -342,17 +342,34 @@
             </li>
         </ul>
 
-        <h3>Assignment 3: Image Data Assignment</h3>
+        <h3>Assignment 3: Image Classification Assignment</h3>
+<ul>
+    <li><b>Report:</b><a href="https://drive.google.com/file/d/1vaSAqEcx6O3Uh10qbIBmyWIaiBw1BXXq/view?usp=sharing" class="colab-button" target="_blank">Open in Google Drive</a></li>
+    <li><b>Dataset:</b> <a href="https://www.kaggle.com/datasets/asaniczka/mammals-image-classification-dataset-45-animals" target="_blank">Mammals Image Classification Dataset</a></li>
+    <li><b>Notebook:</b> <code>/notebook/251_ML_Assignment3.ipynb</code> &nbsp; <a href="https://colab.research.google.com/drive/14XK0vTJEwk1CQHnRdj2O8kgHrr8jiHqF?usp=sharing" class="colab-button" target="_blank">Open in Colab</a></li>
+    <li>
+        <b>Description:</b>
         <ul>
-            <li><b>Dataset:</b> Updating...</li>
-            <li><b>Notebook:</b> Updating...</li>
-            <li><b>Description:</b> Updating...</li>
+            <li>This project focuses on image classification, categorizing articles into 45 mammal species.</li>
+            <li>The core task is to compare traditional machine learning (with engineered features) against modern deep learning (with transfer learning).</li>
+            <li>
+                <ul>
+                    <li><b>Data Preprocessing & EDA:</b> Analyzed class distribution (mild imbalance), image brightness, and performed stratified 60/20/20 splitting.</li>
+                    <li><b>Traditional Models:</b> Extracted features using <b>HOG+PCA</b>, <b>VGG-16 (features)</b>, and <b>EfficientNet-B0 (features)</b>, then trained SVM, Logistic Regression, and Random Forest.</li>
+                    <li><b>Deep Learning Model:</b> Fine-tuned a pre-trained <b>ResNet-50</b> model end-to-end.</li>
+                </ul>
+            </li>
         </ul>
-
-        <h3>Extension Assignment</h3>
+    </li>
+    <li><b>Key Insights:</b>
         <ul>
-            <li><b>Description:</b> Updating...</li>
+            <li>The <b>EfficientNet-B0 (feature extractor) + Logistic Regression</b> combination achieved the highest test accuracy (93.4%).</li>
+            <li>The HOG+PCA pipeline (traditional feature engineering) failed completely, with <15% accuracy, demonstrating the necessity of deep learning features.</li>
+            <li>SVC, Random Forest, and Logistic Regression all performed nearly identically (>87%) *once* given high-quality features from VGG, ResNet, or EfficientNet.</li>
+            <li>This comparison highlights that the "battle" was won at the <b>feature extraction stage</b>, not the final classification stage.</li>
         </ul>
+    </li>
+</ul>
 
     </div>
 
