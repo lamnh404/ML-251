@@ -1083,152 +1083,391 @@
         </div>
 
         <div id="extra" class="tab-content">
-            <h3 style="border-top: none; padding-top: 0;">Assignment Extra: Bayesian Network Implementation</h3>
-            
-            <p>
-                <b>Goal:</b> This module implements a Bayesian Network from scratch to model uncertain relationships in a student performance domain. It features a custom Directed Acyclic Graph (DAG) structure, conditional probability tables (CPTs), and both exact and approximate inference algorithms.
-            </p>
-            <p>
-                <b>Source Code:</b> <code>/Assignment_Extra/bayesian.ipynb</code> &nbsp; <span class="colab-button" style="background: #7f8c8d; cursor: default; font-size: 0.9em; padding: 4px 12px;">Local Only</span>
-            </p>
+    <h3 style="border-top: none; padding-top: 0;">Assignment Extra: Bayesian Network Implementation</h3>
+    
+    <p>
+        <b>Goal:</b> This module implements a Bayesian Network from scratch to model uncertain relationships in a student performance domain. It features a custom Directed Acyclic Graph (DAG) structure, conditional probability tables (CPTs), and both exact and approximate inference algorithms.
+    </p>
+    <p>
+        <b>Source Code:</b> <code>/Assignment_Extra/bayesian.ipynb</code> &nbsp; <span class="colab-button" style="background: #7f8c8d; cursor: default; font-size: 0.9em; padding: 4px 12px;">Local Only</span>
+    </p>
 
-            <div class="bn-dashboard">
-                
-                <div class="bn-card">
-                    <h4>1. The Student Performance Model</h4>
-                    <p>We modeled the causal relationships between student characteristics and their academic outcomes.</p>
-                    <div class="network-structure">
-Difficulty (D)        Intelligence (I)
-      \               /      |
-       \             /       |
-        v           v        v
-        Grade (G)         SAT (S)
+    <div class="bn-dashboard">
+        
+        <div class="bn-card">
+            <h4>1. The Student Performance Model</h4>
+            <p>We modeled the causal relationships between student characteristics and their academic outcomes.</p>
+            <div class="network-structure">
+Difficulty (D)    Intelligence (I)
+      \           /      |
+       \         /       |
+        v       v        v
+        Grade (G)      SAT (S)
             |
             v
         Letter (L)
-                    </div>
-                    <ul style="margin-top:15px; font-size:0.95em;">
-                        <li><b>Variables:</b> Difficulty, Intelligence, Grade (A, B, C), SAT, Letter.</li>
-                        <li><b>Task:</b> Calculate posterior probabilities of hidden variables given observed evidence.</li>
-                    </ul>
-                </div>
+            </div>
+            <ul style="margin-top:15px; font-size:0.95em;">
+                <li><b>Variables:</b> Difficulty, Intelligence, Grade (A, B, C), SAT, Letter.</li>
+                <li><b>Task:</b> Calculate posterior probabilities of hidden variables given observed evidence.</li>
+            </ul>
+        </div>
 
-                <div class="bn-card">
-                    <h4>2. Inference Scenarios & Results</h4>
-                    <p>We used <b>Exact Inference (Enumeration)</b> to calculate the true probabilities.</p>
-
-                    <div class="scenario-box">
-                        <div style="margin-bottom:8px;">
-                            <span class="tag evidence">Evidence: SAT=High, Difficulty=Easy, Intel=Low</span>
-                            <span class="tag query">Query: Letter?</span>
-                        </div>
-                        <p style="margin:5px 0 10px 0; font-size:0.95em; color:#666;"><i>"A student has high SATs and an easy class, but low intelligence. Will they get a strong letter?"</i></p>
-                        
-                        <div class="prob-label"><span>Weak Letter</span></div>
-                        <div class="prob-bar-container">
-                            <div class="prob-bar bar-weak" style="width: 48.7%;">48.7%</div>
-                        </div>
-
-                        <div class="prob-label"><span>Strong Letter</span></div>
-                        <div class="prob-bar-container">
-                            <div class="prob-bar bar-strong" style="width: 51.3%;">51.3%</div>
-                        </div>
-                    </div>
-
-                    <div class="scenario-box">
-                        <div style="margin-bottom:8px;">
-                            <span class="tag evidence">Evidence: SAT=Low, Difficulty=Hard</span>
-                            <span class="tag query">Query: Grade?</span>
-                        </div>
-                        <p style="margin:5px 0 10px 0; font-size:0.95em; color:#666;"><i>"A student with low SAT scores in a hard class. What is the most likely grade?"</i></p>
-                        
-                        <div class="prob-label"><span>Grade A</span></div>
-                        <div class="prob-bar-container">
-                            <div class="prob-bar bar-a" style="width: 8.7%;">8.7%</div>
-                        </div>
-
-                        <div class="prob-label"><span>Grade B</span></div>
-                        <div class="prob-bar-container">
-                            <div class="prob-bar bar-b" style="width: 25.4%;">25.4%</div>
-                        </div>
-
-                        <div class="prob-label"><span>Grade C</span></div>
-                        <div class="prob-bar-container">
-                            <div class="prob-bar bar-c" style="width: 65.9%;">65.9%</div>
-                        </div>
-                    </div>
-
-                     <div class="scenario-box">
-                        <div style="margin-bottom:8px;">
-                            <span class="tag evidence">Evidence: Intel=High, Difficulty=Easy, Grade=C</span>
-                            <span class="tag query">Query: Letter?</span>
-                        </div>
-                        <p style="margin:5px 0 10px 0; font-size:0.95em; color:#666;"><i>"A smart student in an easy class, but they actually got a C. Will they get a strong letter?"</i></p>
-                        
-                        <div class="prob-label"><span>Weak Letter</span></div>
-                        <div class="prob-bar-container">
-                            <div class="prob-bar bar-strong" style="width: 99%;">99.0%</div>
-                        </div>
-                        
-                        <div class="prob-label"><span>Strong Letter</span></div>
-                        <div class="prob-bar-container">
-                            <div class="prob-bar bar-weak" style="width: 1%;">1.0%</div>
-                        </div>
-                    </div>
-
-                    <div class="scenario-box">
-                        <div style="margin-bottom:8px;">
-                            <span class="tag evidence">Evidence: Letter=Strong, Difficulty=Hard</span>
-                            <span class="tag query">Query: Intelligence?</span>
-                        </div>
-                        <p style="margin:5px 0 10px 0; font-size:0.95em; color:#666;"><i>"A student got a Strong letter in a Hard class. Are they intelligent?"</i></p>
-                        
-                        <div class="prob-label"><span>Low Intelligence</span></div>
-                        <div class="prob-bar-container">
-                            <div class="prob-bar bar-weak" style="width: 42.7%;">42.7%</div>
-                        </div>
-                        
-                        <div class="prob-label"><span>High Intelligence</span></div>
-                        <div class="prob-bar-container">
-                            <div class="prob-bar bar-strong" style="width: 57.3%;">57.3%</div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="bn-card">
-                    <h4>3. Performance Analysis</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Method</th>
-                                <th>Accuracy</th>
-                                <th>Theoretical Speed</th>
-                                <th>Use Case</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><b>Exact (Enumeration)</b></td>
-                                <td>100% (Baseline)</td>
-                                <td>Slow</td>
-                                <td>Small networks, critical precision.</td>
-                            </tr>
-                            <tr>
-                                <td><b>Approx (Sampling)</b></td>
-                                <td>~98-99% (with N=10k)</td>
-                                <td>Fast</td>
-                                <td>Large, complex networks.</td>
-                            </tr>
-                        </tbody>
+        <div class="bn-card">
+            <h4>2. Conditional Probability Tables (CPTs)</h4>
+            <p>The probability distributions defining the dependencies between nodes.</p>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; margin-top: 15px;">
+                
+                <div style="flex: 1; min-width: 140px;">
+                    <h5 style="margin: 0 0 5px 0; font-size: 0.9em; color: #444;">Priors</h5>
+                    <table style="width:100%; font-size:0.85em; border-collapse: collapse; margin-bottom: 10px; border: 1px solid #eee;">
+                        <tr style="background:#f9f9f9;"><th style="padding:4px; text-align:left;">Diff (D)</th><th style="padding:4px; text-align:right;">P(D)</th></tr>
+                        <tr><td style="padding:4px; border-top:1px solid #eee;">Easy</td><td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.6</td></tr>
+                        <tr><td style="padding:4px; border-top:1px solid #eee;">Hard</td><td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.4</td></tr>
                     </table>
-                    <p style="margin-top:10px; font-size:0.95em;">
-                        In the experiments, Rejection Sampling with 10,000 samples achieved results within 1.5% margin of error compared to the exact calculation. The theoretical speed advantage of sampling methods is not fully realized in this small network due to overhead, but becomes significant in larger networks.
-                    </p>
+
+                    <table style="width:100%; font-size:0.85em; border-collapse: collapse; border: 1px solid #eee;">
+                        <tr style="background:#f9f9f9;"><th style="padding:4px; text-align:left;">Intel (I)</th><th style="padding:4px; text-align:right;">P(I)</th></tr>
+                        <tr><td style="padding:4px; border-top:1px solid #eee;">Low</td><td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.7</td></tr>
+                        <tr><td style="padding:4px; border-top:1px solid #eee;">High</td><td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.3</td></tr>
+                    </table>
                 </div>
 
+                <div style="flex: 1; min-width: 200px;">
+                    <h5 style="margin: 0 0 5px 0; font-size: 0.9em; color: #444;">SAT (S | I)</h5>
+                    <table style="width:100%; font-size:0.85em; border-collapse: collapse; border: 1px solid #eee;">
+                        <tr style="background:#f9f9f9;">
+                            <th style="padding:4px; text-align:left;">I</th>
+                            <th style="padding:4px; text-align:right;">Low SAT</th>
+                            <th style="padding:4px; text-align:right;">High SAT</th>
+                        </tr>
+                        <tr>
+                            <td style="padding:4px; border-top:1px solid #eee;">Low</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee; color: #7f8c8d;">0.95</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.05</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:4px; border-top:1px solid #eee;">High</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee; color: #7f8c8d;">0.20</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.80</td>
+                        </tr>
+                    </table>
+                    
+                    <h5 style="margin: 15px 0 5px 0; font-size: 0.9em; color: #444;">Letter (L | G)</h5>
+                    <table style="width:100%; font-size:0.85em; border-collapse: collapse; border: 1px solid #eee;">
+                        <tr style="background:#f9f9f9;">
+                            <th style="padding:4px; text-align:left;">G</th>
+                            <th style="padding:4px; text-align:right;">Weak</th>
+                            <th style="padding:4px; text-align:right;">Strong</th>
+                        </tr>
+                        <tr><td style="padding:4px; border-top:1px solid #eee;">A</td><td style="padding:4px; text-align:right; border-top:1px solid #eee; color: #7f8c8d;">0.10</td><td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.90</td></tr>
+                        <tr><td style="padding:4px; border-top:1px solid #eee;">B</td><td style="padding:4px; text-align:right; border-top:1px solid #eee; color: #7f8c8d;">0.40</td><td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.60</td></tr>
+                        <tr><td style="padding:4px; border-top:1px solid #eee;">C</td><td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.99</td><td style="padding:4px; text-align:right; border-top:1px solid #eee; color: #7f8c8d;">0.01</td></tr>
+                    </table>
+                </div>
+
+                <div style="flex: 1.5; min-width: 260px;">
+                    <h5 style="margin: 0 0 5px 0; font-size: 0.9em; color: #444;">Grade (G | D, I)</h5>
+                    <table style="width:100%; font-size:0.85em; border-collapse: collapse; border: 1px solid #eee;">
+                        <tr style="background:#f9f9f9;">
+                            <th style="padding:4px; text-align:left;">D + I</th>
+                            <th style="padding:4px; text-align:right;">A</th>
+                            <th style="padding:4px; text-align:right;">B</th>
+                            <th style="padding:4px; text-align:right;">C</th>
+                        </tr>
+                        <tr>
+                            <td style="padding:4px; border-top:1px solid #eee;">Easy + Low</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.30</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.40</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.30</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:4px; border-top:1px solid #eee;">Easy + High</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.90</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.08</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee; color: #7f8c8d;">0.02</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:4px; border-top:1px solid #eee;">Hard + Low</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee; color: #7f8c8d;">0.05</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.25</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.70</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:4px; border-top:1px solid #eee;">Hard + High</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.50</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.30</td>
+                            <td style="padding:4px; text-align:right; border-top:1px solid #eee;">0.20</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
+
+        <div class="bn-card">
+            <h4>3. Inference Scenarios & Results</h4>
+            <p>We used <b>Exact Inference (Enumeration)</b> to calculate the true probabilities.</p>
+
+            <div class="scenario-box">
+                <div style="margin-bottom:8px;">
+                    <span class="tag evidence">Evidence: SAT=High, Difficulty=Easy, Intel=Low</span>
+                    <span class="tag query">Query: Letter?</span>
+                </div>
+                <p style="margin:5px 0 10px 0; font-size:0.95em; color:#666;"><i>"A student has high SATs and an easy class, but low intelligence. Will they get a strong letter?"</i></p>
+                
+                <div class="prob-label"><span>Weak Letter</span></div>
+                <div class="prob-bar-container">
+                    <div class="prob-bar bar-weak" style="width: 48.7%;">48.7%</div>
+                </div>
+
+                <div class="prob-label"><span>Strong Letter</span></div>
+                <div class="prob-bar-container">
+                    <div class="prob-bar bar-strong" style="width: 51.3%;">51.3%</div>
+                </div>
+            </div>
+
+            <div class="scenario-box">
+                <div style="margin-bottom:8px;">
+                    <span class="tag evidence">Evidence: SAT=Low, Difficulty=Hard</span>
+                    <span class="tag query">Query: Grade?</span>
+                </div>
+                <p style="margin:5px 0 10px 0; font-size:0.95em; color:#666;"><i>"A student with low SAT scores in a hard class. What is the most likely grade?"</i></p>
+                
+                <div class="prob-label"><span>Grade A</span></div>
+                <div class="prob-bar-container">
+                    <div class="prob-bar bar-a" style="width: 8.7%;">8.7%</div>
+                </div>
+
+                <div class="prob-label"><span>Grade B</span></div>
+                <div class="prob-bar-container">
+                    <div class="prob-bar bar-b" style="width: 25.4%;">25.4%</div>
+                </div>
+
+                <div class="prob-label"><span>Grade C</span></div>
+                <div class="prob-bar-container">
+                    <div class="prob-bar bar-c" style="width: 65.9%;">65.9%</div>
+                </div>
+            </div>
+
+             <div class="scenario-box">
+                <div style="margin-bottom:8px;">
+                    <span class="tag evidence">Evidence: Intel=High, Difficulty=Easy, Grade=C</span>
+                    <span class="tag query">Query: Letter?</span>
+                </div>
+                <p style="margin:5px 0 10px 0; font-size:0.95em; color:#666;"><i>"A smart student in an easy class, but they actually got a C. Will they get a strong letter?"</i></p>
+                
+                <div class="prob-label"><span>Weak Letter</span></div>
+                <div class="prob-bar-container">
+                    <div class="prob-bar bar-strong" style="width: 99%;">99.0%</div>
+                </div>
+                
+                <div class="prob-label"><span>Strong Letter</span></div>
+                <div class="prob-bar-container">
+                    <div class="prob-bar bar-weak" style="width: 1%;">1.0%</div>
+                </div>
+            </div>
+
+            <div class="scenario-box">
+                <div style="margin-bottom:8px;">
+                    <span class="tag evidence">Evidence: Letter=Strong, Difficulty=Hard</span>
+                    <span class="tag query">Query: Intelligence?</span>
+                </div>
+                <p style="margin:5px 0 10px 0; font-size:0.95em; color:#666;"><i>"A student got a Strong letter in a Hard class. Are they intelligent?"</i></p>
+                
+                <div class="prob-label"><span>Low Intelligence</span></div>
+                <div class="prob-bar-container">
+                    <div class="prob-bar bar-weak" style="width: 42.7%;">42.7%</div>
+                </div>
+                
+                <div class="prob-label"><span>High Intelligence</span></div>
+                <div class="prob-bar-container">
+                    <div class="prob-bar bar-strong" style="width: 57.3%;">57.3%</div>
+                </div>
+            </div>
+
+        </div>
+		
+		<div class="bn-card">
+    <h4>4. Method Comparison: Exact vs. Rejection Sampling</h4>
+    <p>Comparing the probability results and error margins between Exact Inference (Enumeration) and Approximate Inference (Rejection Sampling). <b>Time metrics excluded.</b></p>
+
+    <!-- Scenario 1 -->
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+        <div style="margin-bottom:8px; font-weight: 600; color: #2c3e50;">
+            1. P( Letter | SAT=High, Diff=Easy, Intel=Low )
+        </div>
+        <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+            Sampling: N=10,000 | Accepted: 219 (2.19%)
+        </div>
+        <table style="width:100%; font-size:0.9em; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr style="background-color: #f8f9fa; border-bottom: 2px solid #ddd;">
+                    <th style="padding: 6px;">Outcome</th>
+                    <th style="padding: 6px;">P(Exact)</th>
+                    <th style="padding: 6px;">P(Approx)</th>
+                    <th style="padding: 6px; color: #c0392b;">Error</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 6px;">Weak</td>
+                    <td style="padding: 6px;">0.4870</td>
+                    <td style="padding: 6px;">0.5068</td>
+                    <td style="padding: 6px; color: #c0392b;">0.0198</td>
+                </tr>
+                <tr>
+                    <td style="padding: 6px;">Strong</td>
+                    <td style="padding: 6px;">0.5130</td>
+                    <td style="padding: 6px;">0.4932</td>
+                    <td style="padding: 6px; color: #c0392b;">0.0198</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Scenario 2 -->
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+        <div style="margin-bottom:8px; font-weight: 600; color: #2c3e50;">
+            2. P( Grade | SAT=Low, Diff=Hard )
+        </div>
+        <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+            Sampling: N=5,000 | Accepted: 1,416 (28.32%)
+        </div>
+        <table style="width:100%; font-size:0.9em; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr style="background-color: #f8f9fa; border-bottom: 2px solid #ddd;">
+                    <th style="padding: 6px;">Outcome</th>
+                    <th style="padding: 6px;">P(Exact)</th>
+                    <th style="padding: 6px;">P(Approx)</th>
+                    <th style="padding: 6px; color: #c0392b;">Error</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 6px;">A</td>
+                    <td style="padding: 6px;">0.0872</td>
+                    <td style="padding: 6px;">0.0911</td>
+                    <td style="padding: 6px; color: #c0392b;">0.0039</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 6px;">B</td>
+                    <td style="padding: 6px;">0.2541</td>
+                    <td style="padding: 6px;">0.2401</td>
+                    <td style="padding: 6px; color: #c0392b;">0.0140</td>
+                </tr>
+                <tr>
+                    <td style="padding: 6px;">C</td>
+                    <td style="padding: 6px;">0.6586</td>
+                    <td style="padding: 6px;">0.6688</td>
+                    <td style="padding: 6px; color: #c0392b;">0.0102</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Scenario 3 -->
+    <div style="margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+        <div style="margin-bottom:8px; font-weight: 600; color: #2c3e50;">
+            3. P( Letter | Intel=High, Diff=Easy, Grade=C )
+        </div>
+        <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+            Sampling: N=10,000 | Accepted: 53 (0.53%) <span style="color:#e67e22; margin-left:5px;">(Rare Event)</span>
+        </div>
+        <table style="width:100%; font-size:0.9em; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr style="background-color: #f8f9fa; border-bottom: 2px solid #ddd;">
+                    <th style="padding: 6px;">Outcome</th>
+                    <th style="padding: 6px;">P(Exact)</th>
+                    <th style="padding: 6px;">P(Approx)</th>
+                    <th style="padding: 6px; color: #c0392b;">Error</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 6px;">Weak</td>
+                    <td style="padding: 6px;">0.9900</td>
+                    <td style="padding: 6px;">0.9811</td>
+                    <td style="padding: 6px; color: #c0392b;">0.0089</td>
+                </tr>
+                <tr>
+                    <td style="padding: 6px;">Strong</td>
+                    <td style="padding: 6px;">0.0100</td>
+                    <td style="padding: 6px;">0.0189</td>
+                    <td style="padding: 6px; color: #c0392b;">0.0089</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Scenario 4 -->
+    <div>
+        <div style="margin-bottom:8px; font-weight: 600; color: #2c3e50;">
+            4. P( Intelligence | Letter=Strong, Diff=Hard )
+        </div>
+        <div style="font-size: 0.85em; color: #666; margin-bottom: 5px;">
+            Sampling: N=10,000 | Accepted: 1,348 (13.48%)
+        </div>
+        <table style="width:100%; font-size:0.9em; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr style="background-color: #f8f9fa; border-bottom: 2px solid #ddd;">
+                    <th style="padding: 6px;">Outcome</th>
+                    <th style="padding: 6px;">P(Exact)</th>
+                    <th style="padding: 6px;">P(Approx)</th>
+                    <th style="padding: 6px; color: #c0392b;">Error</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 6px;">Low</td>
+                    <td style="padding: 6px;">0.4272</td>
+                    <td style="padding: 6px;">0.4577</td>
+                    <td style="padding: 6px; color: #c0392b;">0.0305</td>
+                </tr>
+                <tr>
+                    <td style="padding: 6px;">High</td>
+                    <td style="padding: 6px;">0.5728</td>
+                    <td style="padding: 6px;">0.5423</td>
+                    <td style="padding: 6px; color: #c0392b;">0.0305</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+        <div class="bn-card">
+            <h4>5. Performance Analysis</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Method</th>
+                        <th>Accuracy</th>
+                        <th>Theoretical Speed</th>
+                        <th>Use Case</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b>Exact (Enumeration)</b></td>
+                        <td>100% (Baseline)</td>
+                        <td>Slow</td>
+                        <td>Small networks, critical precision.</td>
+                    </tr>
+                    <tr>
+                        <td><b>Approx (Sampling)</b></td>
+                        <td>~98-99% (with N=10k)</td>
+                        <td>Fast</td>
+                        <td>Large, complex networks.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top:10px; font-size:0.95em;">
+                In the experiments, Rejection Sampling with 10,000 samples achieved results within 1.5% margin of error compared to the exact calculation. The theoretical speed advantage of sampling methods is not fully realized in this small network due to overhead, but becomes significant in larger networks.
+            </p>
+        </div>
+
+    </div>
+</div>
 
     </div>
 
